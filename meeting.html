@@ -19,6 +19,16 @@
           top: 150px;
           z-index: 2;
         }
+        #video_button {
+          position: absolute;
+          top: 200px;
+          z-index: 2;
+        }
+        #chat_button {
+          position: absolute;
+          top: 250px;
+          z-index: 2;
+        }
         nav {
           z-index: 2;
         }
@@ -32,11 +42,24 @@
 
         <div class="row">
             <div class="col-sm-12">
-                <button type="submit" class="btn btn-primary" id="setting_button">Run Breakout Room</button>
+                <button type="submit" class="btn btn-primary" id="setting_button">
+                    Join Audio
+                </button>
             </div>
             <div class="col-sm-12">
-                <button type="button" class="btn btn-primary" data-toggle="modal" target="#myModal" id="mute_button">
-                    Mute User
+                <!-- <button type="button" class="btn btn-primary" data-toggle="modal" target="#myModal" id="mute_button"> -->
+                <button type="button" class="btn btn-primary" id="mute_button">
+                    Mute/Unmute
+                </button>
+            </div>
+            <div class="col-sm-12">
+                <button type="button" class="btn btn-primary" id="video_button">
+                    Start Video
+                </button>
+            </div>
+            <div class="col-sm-12">
+                <button type="button" class="btn btn-primary" id="chat_button">
+                    Open Chat
                 </button>
             </div>
 

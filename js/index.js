@@ -23,7 +23,7 @@ const API_SECRET = "e1Y9QHS0lZ6fYx0BuaEc7s4fVcinDHwAfLma";
 
 document.getElementById("join_meeting").addEventListener("click", (e) => {
   e.preventDefault();
-  const meetingConfig = testTool.getMeetingConfig(81284625158, "313793");
+  const meetingConfig = testTool.getMeetingConfig(88030418723, "362992");
   
   // testTool.setCookie("meeting_number", meetingConfig.mn);
   // testTool.setCookie("meeting_pwd", meetingConfig.pwd);
@@ -40,5 +40,22 @@ document.getElementById("join_meeting").addEventListener("click", (e) => {
       window.open(joinUrl, "_blank");
     },
   });
+
+  // const signature = ZoomMtg.generateSignature({
+  //   meetingNumber: meetingConfig.mn,
+  //   apiKey: API_KEY,
+  //   apiSecret: API_SECRET,
+  //   role: meetingConfig.role,
+  //   success: function (res) {
+  //     console.log(res.result);
+  //     meetingConfig.signature = res.result;
+  //     meetingConfig.apiKey = API_KEY;
+  //     const joinUrl =
+  //       testTool.getCurrentDomain() +
+  //       "/meeting.html?" +
+  //       testTool.serialize(meetingConfig);
+  //     testTool.createZoomNode("websdk-iframe", joinUrl);
+  //   },
+  // });
 });
 

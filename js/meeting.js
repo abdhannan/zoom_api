@@ -80,63 +80,85 @@ beginJoin(meetingConfig.signature);
 
 document.getElementById("setting_button").addEventListener("click", (e) => {
   e.preventDefault();
-  alert("work")
 });
 
 $(document).ready(function() {
   $("#mute_button").on("click", (e) => {
     e.preventDefault();
-    $('#myModal').modal('show');
+    $("#wc-footer-left > div:nth-child(1) > button").click();
+    // $("#securityOptionMenu").toggle();
+    // $('#myModal').modal('show');
 
-    ZoomMtg.getAttendeeslist({
-      success: function(response) {
-        var list = response.result.attendeesList;
-        list.forEach(element => {
-          if(element.isHost == false) 
-          {
-            if(element.muted == true)
-            {
-              var template = 
-              `<li class="list-group-item" style="display: flex; flex-direction: row; justify-content: space-between;">
-                <span style="align-self: center">[` + element.userId + '] ' + element.userName + `</span>` + 
-                `<button class="btn btn-default right mute_action" userId="` + element.userId + `" muted="` + element.muted + `">unmute</button>` +
-              `</li>`;
-              $(".modal-body.participant ul").append(template);
-            }
-            else
-            {
-              var template = 
-              `<li class="list-group-item" style="display: flex; flex-direction: row; justify-content: space-between;">
-                <span style="align-self: center">[` + element.userId + '] ' + element.userName + `</span>` + 
-                `<button class="btn btn-default right mute_action" userId="` + element.userId + `" muted="` + element.muted + `">mute</button>` +
-              `</li>`;
-              $(".modal-body.participant ul").append(template);
-            }
-          }
-        });
-      },
-      error: function(err) {
-        console.log("err" + err);
-      }
-    });
+    // ZoomMtg.getAttendeeslist({
+    //   success: function(response) {
+    //     var list = response.result.attendeesList;
+    //     list.forEach(element => {
+    //       if(element.isHost == false) 
+    //       {
+    //         if(element.muted == true)
+    //         {
+    //           var template = 
+    //           `<li class="list-group-item" style="display: flex; flex-direction: row; justify-content: space-between;">
+    //             <span style="align-self: center">[` + element.userId + '] ' + element.userName + `</span>` + 
+    //             `<button class="btn btn-default right mute_action" userId="` + element.userId + `" muted="` + element.muted + `">unmute</button>` +
+    //           `</li>`;
+    //           $(".modal-body.participant ul").append(template);
+    //         }
+    //         else
+    //         {
+    //           var template = 
+    //           `<li class="list-group-item" style="display: flex; flex-direction: row; justify-content: space-between;">
+    //             <span style="align-self: center">[` + element.userId + '] ' + element.userName + `</span>` + 
+    //             `<button class="btn btn-default right mute_action" userId="` + element.userId + `" muted="` + element.muted + `">mute</button>` +
+    //           `</li>`;
+    //           $(".modal-body.participant ul").append(template);
+    //         }
+    //       }
+    //     });
+    //   },
+    //   error: function(err) {
+    //     console.log("err" + err);
+    //   }
+    // });
 
-    $('#myModal').on('hidden.bs.modal', function (e) {
-      $(".modal-body.participant").html("");
-    });
+    // $('#myModal').on('hidden.bs.modal', function (e) {
+    //   $(".modal-body.participant").html("");
+    // });
 
-    $(".mute_action").on('click', function(e) {
-      var button = $(e.target);
-      var muted = button.attr("muted"); 
-      var userId = button.attr("userId"); 
-      ZoomMtg.mute({
-        userId: parseInt(userId),
-        mute: !muted,
-        success: function(res) {
-          console.log(res);
-        }
-      });
+    // $(".mute_action").on('click', function(e) {
+    //   var button = $(e.target);
+    //   var muted = button.attr("muted"); 
+    //   var userId = button.attr("userId"); 
+    //   ZoomMtg.mute({
+    //     userId: parseInt(userId),
+    //     mute: !muted,
+    //     success: function(res) {
+    //       console.log(res);
+    //     }
+    //   });
     
-    });
+    // });
 
+  });
+});
+
+$(document).ready(function() {
+  $("#setting_button").on("click", (e) => {
+    e.preventDefault();
+    $("#dialog-join > div:nth-child(4) > div > div > div:nth-child(1) > button[title='Join Audio by Computer']").click();
+  });
+
+  $("#video_button").on("click", (e) => {
+    e.preventDefault();
+    $("#wc-footer-left > div:nth-child(2) > button").click();
+  });
+
+  $("#mute_button").on("click", (e) => {
+    e.preventDefault();
+    $("#wc-footer-left > div:nth-child(1) > button").click();
+  });
+  $("#chat_button").on("click", (e) => {
+    e.preventDefault();
+    $("#wc-footer > div:nth-child(2) > button:nth-child(3)").click();
   });
 });
